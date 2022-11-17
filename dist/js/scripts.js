@@ -30,38 +30,29 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 // gallery
-$(document).ready(function(){
-    $(".fancybox").fancybox({
-          openEffect: "none",
-          closeEffect: "none"
-      });
-      
-      $(".zoom").hover(function(){
-          
-          $(this).addClass('transition');
-      }, function(){
-          
-          $(this).removeClass('transition');
-      });
-  });
+let slideIndex = 1;
+showSlides(slideIndex);
 
-  $('.portfolio-menu ul li').click(function(){
-    $('.portfolio-menu ul li').removeClass('active');
-    $(this).addClass('active');
-    
-    var selector = $(this).attr('data-filter');
-    $('.portfolio-item').isotope({
-        filter:selector
-    });
-    return  false;
-});
-$(document).ready(function() {
-var popup_btn = $('.popup-btn');
-popup_btn.magnificPopup({
-type : 'image',
-gallery : {
-    enabled : true
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
-});
-});
 
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
