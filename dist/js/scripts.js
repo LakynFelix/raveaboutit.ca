@@ -29,51 +29,56 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 
-// gallery
+// slideshow in main page
 
-// let slideIndex = 1;
-// showSlides(slideIndex);
+let slideIndex = 1;
+showSlides(slideIndex);
 
-// function plusSlides(n) {
-//   showSlides(slideIndex += n);
-// }
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-// function currentSlide(n) {
-//   showSlides(slideIndex = n);
-// }
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
 
-// function showSlides(n) {
-//   let i;
-//   let slides = document.getElementsByClassName("mySlides");
-//   let dots = document.getElementsByClassName("dot");
-//   if (n > slides.length) {slideIndex = 1}    
-//   if (n < 1) {slideIndex = slides.length}
-//   for (i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "";  
-//   }
-//   for (i = 0; i < dots.length; i++) {
-//     dots[i].className = dots[i].className.replace(" active", "");
-//   }
-//   slides[slideIndex-1].style.display = "block";  
-//   dots[slideIndex-1].className += " active";
-// }
-
-let slideIndex = 0;
-showSlides();
-
-function showSlides() {
+function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].style.display = "";  
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
+
+// gallery page
+ $('.portfolio-item').isotope({
+         	itemSelector: '.item',
+         	layoutMode: 'fitRows'
+         });
+        $('.portfolio-menu ul li').click(function(){
+            $('.portfolio-menu ul li').removeClass('active');
+            $(this).addClass('active');
+            
+            var selector = $(this).attr('data-filter');
+            $('.portfolio-item').isotope({
+                filter:selector
+            });
+            return  false;
+        });
+        $(document).ready(function() {
+        var popup_btn = $('.popup-btn');
+        popup_btn.magnificPopup({
+        type : 'image',
+        gallery : {
+            enabled : true
+        }
+        });
+        });
