@@ -2,6 +2,9 @@
     "title": "Clean Blog",
     "name": "startbootstrap-clean-blog",
     "version": "6.0.8",
+    "engines": {
+        "node": "18.x"
+      },
     "scripts": {
         "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
         "build:assets": "node scripts/build-assets.js",
