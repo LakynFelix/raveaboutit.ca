@@ -1,6 +1,6 @@
 {
-    "title": "Clean Blog",
-    "name": "startbootstrap-clean-blog",
+    "title": "Raveaboutit",
+    "name": "Raveaboutit-clean-blog",
     "version": "6.0.8",
     "scripts": {
         "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
@@ -21,10 +21,10 @@
         "theme",
         "template"
     ],
-    "homepage": "https://startbootstrap.com/theme/clean-blog",
+    "homepage": "https://github.com/LakynFelix/raveaboutit.ca.git",
     "bugs": {
-        "url": "https://github.com/StartBootstrap/startbootstrap-clean-blog/issues",
-        "email": "feedback@startbootstrap.com"
+        "url": "https://github.com/LakynFelix/raveaboutit.ca.git",
+        "email": "lakynmphotography@hotmail.com"
     },
     "license": "MIT",
     "author": "Start Bootstrap",
@@ -33,7 +33,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/StartBootstrap/startbootstrap-clean-blog.git"
+        "url": "https://github.com/LakynFelix/raveaboutit.ca.git"
     },
     "dependencies": {
         "bootstrap": "5.1.3"
